@@ -1,0 +1,7 @@
+pdfx==1.3.0
+elasticsearch
+pandas
+gensim
+sklearn
+nltk
+numpy
