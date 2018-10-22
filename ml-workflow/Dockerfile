@@ -37,6 +37,7 @@ RUN set -ex \
     ' \
     && apt-get update -yqq \
     && apt-get upgrade -yqq \
+    && apt-get install subversion\
     && apt-get install -yqq --no-install-recommends \
         $buildDeps \
         build-essential \
