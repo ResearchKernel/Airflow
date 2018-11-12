@@ -2,7 +2,6 @@
 
 ## Why WorkFlow Management ?
 
-<<<<<<< HEAD
 At Research Kernel, we need to keep updating our Elastic Search database everyday as arxiv.org publish new Research Papers. We also have to find the similar papers of new incoming papers in our database by passing those papers to our recommendation system. 
 
 We use AWS compute heavy spot EC2 instances for machine learning workload and and shut them down as soon as put ML computation is finished and save the output into our knowledge graph. We have to do this simple process everyday. As we do have a lot of task dependency, scheduling and sanity checks, this can't be done with a simple cron job.  
