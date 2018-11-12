@@ -37,7 +37,7 @@ RUN set -ex \
     ' \
     && apt-get update -yqq \
     && apt-get upgrade -yqq \
-    && apt-get install subversion\
+    && apt-get install subversion -y \
     && apt-get install -yqq --no-install-recommends \
         $buildDeps \
         build-essential \
@@ -64,6 +64,7 @@ RUN set -ex \
     && pip install apache-airflow[crypto,celery,postgres,hive,jdbc,mysql,s3,kubernetes]==$AIRFLOW_VERSION \
     && pip install awscli \
     && pip install 'celery[redis]>=4.1.1,<4.2.0' \
+    && pip install pdfx==1.3.0 elasticsearch pandas gensim sklearn nltk numpy \
     && apt-get purge --auto-remove -yqq $buildDeps \
     && apt-get autoremove -yqq --purge \
     && apt-get clean \
@@ -78,7 +79,6 @@ RUN set -ex \
 COPY script/entrypoint.sh /entrypoint.sh
 COPY config/airflow.cfg ${AIRFLOW_HOME}/airflow.cfg
 COPY ./dags /usr/local/airflow/dags
-COPY ./mlservice /usr/local/airflow/mlservice
 
 RUN chown -R airflow: ${AIRFLOW_HOME}
 
