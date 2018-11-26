@@ -13,4 +13,5 @@ custom_filter = [{
     'Values': ['spot']}]
 
 response = client.describe_instances(Filters=custom_filter)
+print(response)
 print(response["Reservations"][0]["Instances"][0]["InstanceId"])
